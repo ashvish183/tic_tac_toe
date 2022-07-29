@@ -1,8 +1,9 @@
 import React from 'react'
 import Square from './Square';
-const Board = ({board,handleSquareClick}) => {
+const Board = ({board,handleSquareClick,winningSquare}) => {
   const renderSquare=(pos)=>{
-    return (<Square value={board[pos]} onClick={()=>handleSquareClick(pos)}></Square>)
+    const isWinningSquare=winningSquare.includes(pos)
+    return (<Square value={board[pos]} onClick={()=>handleSquareClick(pos)} isWinningSquare={isWinningSquare}></Square>)
   }
   return (
     <div className='board'>
